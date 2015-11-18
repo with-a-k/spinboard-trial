@@ -17,4 +17,14 @@ RSpec.feature "UserSignups", type: :feature do
     click_on "Create User"
     expect(current_path).to eq(links_path)
   end
+
+  scenario "kick back to the signup form on bad user" do
+    visit new_user_path
+    fill_in :user_name, with: "Chara"
+    fill_in :user_email, with: "thefallenhuman@under.net"
+    fill_in :user_password, with: "password"
+    click_on "Create User"
+    expect(current_path).to eq(new_user_path)
+    expect(page).to have_content("Couldn't sign you up. Someone else is using that email address, or your password didn't match its confirmation.")
+  end
 end
