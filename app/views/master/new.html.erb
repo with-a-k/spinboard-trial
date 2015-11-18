@@ -1,0 +1,11 @@
+<h2>Log In As Existing User</h2>
+
+<%= form_tag(action: "create", method: "post") do %>
+	<%= label_tag :email, "Email" %>
+	<%= text_field_tag :email %><br>
+	<%= label_tag :password, "Password" %>
+	<%= password_field_tag :password %><br>
+	<%= label_tag :password_confirmation, "Confirm Password" %>
+	<%= password_field_tag :password_confirmation %>
+	<%= submit_tag "Log In" %>
+<% end %>
