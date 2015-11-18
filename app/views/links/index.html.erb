@@ -5,6 +5,8 @@
 	<%= select_tag :filter_status, options_for_select(['all', 'read', 'unread']) %>
 </div>
 
+<button id="sort-button">Sort Links</button>
+
 <div class="link-container">
 	<ul>
 		<% @links.each do |link| %>
