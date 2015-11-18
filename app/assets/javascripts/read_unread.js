@@ -1,4 +1,4 @@
-$(document).ready(function() {
+function readAndUnread() {
 
 	function changeStatusToRead(id_of_link) {
 		console.log('Changing status of ' + id_of_link);
@@ -13,6 +13,7 @@ $(document).ready(function() {
 			success: function() {
 				var modifyLink = $("[data-id=" + id_of_link + "]");
 				modifyLink.addClass('read');
+				modifyLink.attr('data-read', 'read');
 				var button = $(modifyLink.children('button'))
 				button.prop('innerText', 'Mark as Unread');
 				button.one('click', function () {
@@ -34,6 +35,7 @@ $(document).ready(function() {
 			success: function () {
 				var modifyLink = $("[data-id=" + id_of_link + "]");
 				modifyLink.removeClass('read');
+				modifyLink.attr('data-read', 'unread');
 				var button = $(modifyLink.children('button'))
 				button.prop('innerText', 'Mark as Read');
 				button.one('click', function () {
@@ -54,4 +56,4 @@ $(document).ready(function() {
 			});
 		}
 	})
-});
+}

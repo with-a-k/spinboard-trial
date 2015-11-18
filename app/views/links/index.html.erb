@@ -1,12 +1,17 @@
 <%= link_to "Sign Out", logout_path %>
 
+<div class="link-filters">
+	<%= text_field_tag :filter_title %>
+	<%= select_tag :filter_status, options_for_select(['all', 'read', 'unread']) %>
+</div>
+
 <div class="link-container">
 	<ul>
 		<% @links.each do |link| %>
 			<% if link.read %>
-				<li class="link read" data-id="<%= link.id %>">
+				<li class="link read" data-id="<%= link.id %>" data-read="read">
 			<% else %>
-				<li class="link" data-id="<%= link.id %>">
+				<li class="link" data-id="<%= link.id %>" data-read="unread">
 			<% end %>
 				<span class="link-body"><%= link_to link.title, link.location %></span>
 			<button class="status-change" data-read="<%= link.read %>">
