@@ -1,6 +1,6 @@
 class MasterController < ApplicationController
   def index
-    redirect_to links_path if cookies[:session]
+    redirect_to links_path if cookies.signed[:session]
   end
 
   def new
@@ -10,7 +10,7 @@ class MasterController < ApplicationController
   def create
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password]) && params[:password] == params[:password_confirmation]
-      cookies.signed[:session] = { user: user.id, expires: Time.now + 3600 }
+      cookies.signed[:session] = { value: user.id, expires: Time.now + 3600 }
       redirect_to links_path
     else
       flash[:whoops] = "That didn't work. Check your email and password again."

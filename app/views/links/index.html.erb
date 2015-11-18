@@ -1,1 +1,18 @@
 <%= link_to "Sign Out", logout_path %>
+
+<div class="link-container">
+	<ul>
+		<% @links.each do |link| %>
+			<li class="link"><%= link_to link.title, link.location %></li>
+		<% end %>
+	</ul>
+</div>
+
+<p>Add Link</p>
+<%= form_for @new_link do |f| %>
+	<%= f.label :title, "Title:" %>
+	<%= f.text_field :title %><br>
+	<%= f.label :location, "Location:" %>
+	<%= f.text_field :location %><br>
+	<%= f.submit "Create Link" %>
+<% end %>
