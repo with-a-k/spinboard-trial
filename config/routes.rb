@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       resources :links, only: [:create, :update]
     end
   end
-  resources :links, only: [:index, :create]
+  resources :links, only: [:index, :create, :edit, :update]
   resources :users, only: [:new, :create]
   get '/login', to: 'master#new'
   post '/login', to: 'master#create'

@@ -1,0 +1,7 @@
+<%= form_for @link, url: { action: 'update' } do |f| %>
+	<%= f.label :title, "Title:" %>
+	<%= f.text_field :title %><br>
+	<%= f.label :location, "Location:" %>
+	<%= f.text_field :location %><br>
+	<%= f.submit "Update Link" %>
+<% end %>

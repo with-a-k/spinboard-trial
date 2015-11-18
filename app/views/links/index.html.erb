@@ -8,13 +8,14 @@
 			<% else %>
 				<li class="link" data-id="<%= link.id %>">
 			<% end %>
-				<span class="link-body"><%= link_to link.title, link.location %></span> <button class="status-change" data-read="<%= link.read %>">
+				<span class="link-body"><%= link_to link.title, link.location %></span>
+			<button class="status-change" data-read="<%= link.read %>">
 				<% if link.read %>
 					Mark as Unread
 				<% else %>
 					Mark as Read
 				<% end %>
-			</button></li>
+			</button><%= button_to 'Edit Link', edit_link_path(link), :method => :get %></li>
 		<% end %>
 	</ul>
 </div>
