@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+.read span a {
+	color: #999;
+}

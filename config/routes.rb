@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  namespace :api do
+    namespace :v1 do
+      resources :links, only: [:create, :update]
+    end
+  end
   resources :links, only: [:index, :create]
   resources :users, only: [:new, :create]
   get '/login', to: 'master#new'

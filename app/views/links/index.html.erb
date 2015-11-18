@@ -3,7 +3,18 @@
 <div class="link-container">
 	<ul>
 		<% @links.each do |link| %>
-			<li class="link"><%= link_to link.title, link.location %></li>
+			<% if link.read %>
+				<li class="link read" data-id="<%= link.id %>">
+			<% else %>
+				<li class="link" data-id="<%= link.id %>">
+			<% end %>
+				<span class="link-body"><%= link_to link.title, link.location %></span> <button class="status-change" data-read="<%= link.read %>">
+				<% if link.read %>
+					Mark as Unread
+				<% else %>
+					Mark as Read
+				<% end %>
+			</button></li>
 		<% end %>
 	</ul>
 </div>
