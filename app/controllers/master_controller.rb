@@ -17,4 +17,9 @@ class MasterController < ApplicationController
       redirect_to :back
     end
   end
+
+  def destroy
+    cookies.delete(:session)
+    redirect_to root_path
+  end
 end
