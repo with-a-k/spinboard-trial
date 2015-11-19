@@ -1,6 +1,7 @@
 <%= link_to "Sign Out", logout_path %>
 
 <div class="link-filters">
+	Filter Links By:
 	<%= text_field_tag :filter_title %>
 	<%= select_tag :filter_status, options_for_select(['all', 'read', 'unread']) %>
 </div>
