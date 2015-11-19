@@ -15,7 +15,8 @@
 			<% else %>
 				<li class="link" data-id="<%= link.id %>" data-read="unread">
 			<% end %>
-				<span class="link-body"><%= link_to link.title, link.location %></span>
+				<span class="link-body"><%= link_to link.title, link.location %></span><br>
+				<p><%= link.summary %></p><br>
 			<button class="status-change" data-read="<%= link.read %>">
 				<% if link.read %>
 					Mark as Unread

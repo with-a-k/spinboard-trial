@@ -1,7 +1,6 @@
 function readAndUnread() {
 
 	function changeStatusToRead(id_of_link) {
-		console.log('Changing status of ' + id_of_link);
 		$.ajax({
 			type: 'PATCH',
 			url:  '/api/v1/links/' + id_of_link,
